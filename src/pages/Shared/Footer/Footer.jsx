@@ -59,9 +59,9 @@ const Footer = () => {
           </div>
         </nav>
       </div>
-      <div className="footer footer-center p-4 bg-base-300 text-base-content">
+      <div className="footer footer-center p-4 bg-neutral text-neutral-content">
         <aside>
-          <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+          <p>Copyright © 2023 - All right reserved by Bistro Boss Restaurant</p>
         </aside>
       </div>
     </footer>
