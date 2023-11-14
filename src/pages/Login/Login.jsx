@@ -4,11 +4,14 @@ import {
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
+import useAuth from "../../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const Login = () => {
-    const captchaRef = useRef(null);
-    const [disabled,setDisabled] = useState(true)
-
+  const captchaRef = useRef(null);
+  const [disabled, setDisabled] = useState(true);
+  const { signIn } = useAuth()
+  
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
@@ -19,18 +22,24 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
+    signIn(email, password)
+      .then(res => {
+      console.log(res.user);
+      })
+      .catch(err => {
+      console.log(err);
+    })
   };
 
   // for captcha
-    const handleValidate = () => {
-        const user_captcha_value = captchaRef.current.value;
-        if (validateCaptcha(user_captcha_value) === true) {
-           setDisabled(false)
-        }
-        else {
-            setDisabled(true)
-        }
-        
+  const handleValidate = () => {
+    const user_captcha_value = captchaRef.current.value;
+    if (validateCaptcha(user_captcha_value) === true) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
   };
 
   return (
@@ -90,9 +99,15 @@ const Login = () => {
               </button>
             </div>
             <div className="form-control mt-6">
-              <input disabled={disabled} className="btn btn-primary" type="submit" value="Login" />
+              <input
+                disabled={disabled}
+                className="btn btn-primary"
+                type="submit"
+                value="Login"
+              />
             </div>
           </form>
+          <p className="text-center py-2 mb-3">New here? <Link className="text-blue-600" to='/register'>signUp</Link></p>
         </div>
       </div>
     </div>
