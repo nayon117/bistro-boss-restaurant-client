@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
 import auth from '../firebase/firebase.config';
@@ -25,6 +25,13 @@ const AuthProvider = ({ children }) => {
         return signOut(auth)
     }
 
+    // update profile 
+    const handleUpdateProfile = (name,photo) => {
+       return  updateProfile(auth.currentUser, {
+            displayName: name , photoURL: photo
+          }) 
+    }
+
 
     // observer 
     useEffect(() => {
@@ -43,7 +50,8 @@ const AuthProvider = ({ children }) => {
         loading,
         createUser,
         signIn,
-        logOut
+        logOut,
+        handleUpdateProfile
     }
     return (
         <AuthContext.Provider value={authInfo}>
