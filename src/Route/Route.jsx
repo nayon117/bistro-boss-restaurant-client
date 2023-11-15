@@ -7,6 +7,8 @@ import Order from "../Order/Order/Order";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import DashBoard from "../layout/DashBoard";
+import Cart from "../pages/DashBoard/Cart/Cart";
 
 const myCreatedRoute = createBrowserRouter([
     {
@@ -35,6 +37,16 @@ const myCreatedRoute = createBrowserRouter([
                 element: <Register></Register>
             }
           
+        ]
+    },
+    {
+        path: 'dashboard',
+        element: <DashBoard></DashBoard>,
+        children: [
+            {
+                path: 'cart',
+                element:<Cart></Cart>
+            }
         ]
     }
 
