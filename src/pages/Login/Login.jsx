@@ -8,6 +8,7 @@ import useAuth from "../../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -126,8 +127,11 @@ const Login = () => {
                 signUp
               </Link>
             </p>
+            <div className="divider px-4"></div>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
+        
       </div>
     </>
   );
