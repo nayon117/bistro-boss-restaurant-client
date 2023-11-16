@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Register = () => {
   const axiosPublic = useAxiosPublic()
@@ -161,6 +162,8 @@ const Register = () => {
                 Login
               </Link>
             </p>
+            <div className="divider px-4"></div>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
