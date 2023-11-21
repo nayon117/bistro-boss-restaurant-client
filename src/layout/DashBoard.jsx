@@ -84,7 +84,7 @@ const DashBoard = () => {
               <li>
                 <NavLink to="/dashboard/paymentHistory">
                   <FaList></FaList>
-                   Payment History
+                  Payment History
                 </NavLink>
               </li>
             </>

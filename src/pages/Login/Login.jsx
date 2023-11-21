@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  validateCaptcha,
+  // validateCaptcha,
 } from "react-simple-captcha";
 import useAuth from "../../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
-  const [disabled, setDisabled] = useState(true);
+  // const [disabled, setDisabled] = useState(true);
   const { signIn } = useAuth();
   const navigate = useNavigate()
   const location = useLocation()
@@ -47,14 +47,14 @@ const Login = () => {
   };
 
   // for captcha
-  const handleValidate = (e) => {
-    const user_captcha_value = e.target.value;
-    if (validateCaptcha(user_captcha_value) === true) {
-      setDisabled(false);
-    } else {
-      setDisabled(true);
-    }
-  };
+  // const handleValidate = (e) => {
+  //   const user_captcha_value = e.target.value;
+  //   if (validateCaptcha(user_captcha_value) === true) {
+  //     setDisabled(false);
+  //   } else {
+  //     setDisabled(true);
+  //   }
+  // };
 
   return (
     <>
@@ -104,17 +104,17 @@ const Login = () => {
                 <input
                   type="text"
                   name="captcha"
-                  onBlur={handleValidate}
+                  // onBlur={handleValidate}
                  
                   placeholder="type the text above"
                   className="input input-bordered"
-                  required
+                  // required
                 />
                 
               </div>
               <div className="form-control mt-6">
                 <input
-                  disabled={disabled}
+                  // disabled={disabled}
                   className="btn btn-primary"
                   type="submit"
                   value="Login"
